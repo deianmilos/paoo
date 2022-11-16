@@ -16,7 +16,7 @@
 
 ### **Item 12**: Copy all parts of an object.
 
-##task **3**
+## task **3**
 
 ### **Item 13**: Use objects to manage resources.
 
