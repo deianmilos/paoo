@@ -13,12 +13,24 @@ private:
 	int number_of_floors;
 	bool has_pool;
 
+/*
+Item 6: Explicitly disallow the use of compiler generated functions you do not want
+
+	//default constructor
+    Mansion(void);
+	
+	//the method delcared public and its implementation in Mansion.cpp file
+	should be commented when declaring it private
+*/
 public:
 	//default constructor
     Mansion(void);
 	
 	//user-defined constructor
 	Mansion(string, int, int, int, bool);
+	
+	//default copy-constructor
+	Mansion(const Mansion&);
 	
 	//default destructor
 	~Mansion(void);

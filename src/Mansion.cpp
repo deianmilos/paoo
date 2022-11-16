@@ -4,6 +4,8 @@
 using namespace std;
 
 //Item 4: Make sure that objects are initialized before they’re used.
+
+/*
 Mansion::Mansion():
 	House::House(),
 	number_of_floors(0),
@@ -11,7 +13,7 @@ Mansion::Mansion():
 	{
 		cout << "Inside of mansion (derived class) constructor [default]\n";
 	}
-
+*/
 Mansion::Mansion(string adr, int nor, int s, int nof, bool hp):
 		House::House(adr,nor,s),
 		number_of_floors(nof),
@@ -19,6 +21,18 @@ Mansion::Mansion(string adr, int nor, int s, int nof, bool hp):
 	{
 		 cout << "Inside of mansion (derived class) constructor [user-defined] \n";
 	}
+	
+Mansion::Mansion(const Mansion& m){
+	
+    address=m.address;
+	number_of_rooms=m.number_of_rooms;
+	surface=m.surface;
+	
+	number_of_floors=m.number_of_floors,
+	has_pool=m.has_pool;
+	
+	cout << "Inside of mansion (derived class) copy-constructor [default]\n";
+}
 
 Mansion::~Mansion(){
         cout << "Inside of mansion (derived class) destructor [default]\n";

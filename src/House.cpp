@@ -3,6 +3,7 @@
 using namespace std;
 
 //Item 4: Make sure that objects are initialized before they’re used.
+
 House::House():
 	address(),
 	number_of_rooms(0),
@@ -18,6 +19,13 @@ House::House(string adr, int nor, int s):
 	{
 		cout << "Inside of house (base class) constructor [user-defined]\n";
 	}
+	
+House::House(const House& h){
+    address=h.address;
+	number_of_rooms=h.number_of_rooms;
+	surface=h.surface;
+	cout << "Inside of house (base class) copy-constructor [default]\n";
+}
 
 House::~House(){
 		cout << "Inside of house (base class) destructor [default]\n";
