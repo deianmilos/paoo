@@ -27,6 +27,17 @@ House::House(const House& h){
 	cout << "Inside of house (base class) copy-constructor [default]\n";
 }
 
+//Item 10: Have assignment operators return a reference to *this.
+House& House::operator=(House &h) 
+{
+	address=h.get_address();
+	number_of_rooms=h.get_number_of_rooms(),
+	surface=h.get_surface();
+	cout<<"Used user-defined assignment operator and returned refference to *this\n";
+    return *this;
+}
+
+
 House::~House(){
 		cout << "Inside of house (base class) destructor [default]\n";
 	}

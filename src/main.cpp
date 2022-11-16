@@ -18,8 +18,8 @@ int main(){
 	
 	House user_defined_house("house_addr", 5, 120);
 	user_defined_house.display();
-	House default_house;
-	default_house.display();
+	//House default_house;
+	//default_house.display();
 	
 	//Mansion user_defined_mansion("mansion_addr", 8, 220, 1, false);
 	//user_defined_mansion.display();
@@ -40,6 +40,11 @@ int main(){
 	//copy_constructed_mansion.display();
 	//Mansion assignment_operator_mansion = mansion;
 	//assignment_operator_mansion.display();
+	
+	House house_assignment_operator1, house_assignment_operator2;
+	house_assignment_operator1 = house_assignment_operator2 = user_defined_house;
+	house_assignment_operator1.display();
+	house_assignment_operator2.display();
 	
 	return 0;
 }

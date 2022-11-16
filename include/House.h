@@ -25,6 +25,8 @@ public:
 	//default copy-constructor
 	House(const House&);
 	
+	House& operator=(House&);
+	
 	//default destructor
 	~House(void);
 	
