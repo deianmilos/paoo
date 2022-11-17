@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../include/House.h"
 #include "../include/Mansion.h"
+#include "../include/Family.h"
 
 using namespace std;
 /*
@@ -17,7 +18,8 @@ using namespace std;
 int main(){
 	
 	House user_defined_house("house_addr", 5, 120);
-	user_defined_house.display();
+	
+	//user_defined_house.display();
 	//House default_house;
 	//default_house.display();
 	
@@ -41,10 +43,15 @@ int main(){
 	//Mansion assignment_operator_mansion = mansion;
 	//assignment_operator_mansion.display();
 	
-	House house_assignment_operator1, house_assignment_operator2;
-	house_assignment_operator1 = house_assignment_operator2 = user_defined_house;
-	house_assignment_operator1.display();
-	house_assignment_operator2.display();
+	
+	//Item 10: Have assignment operators return a reference to *this.
+	//House house_assignment_operator1, house_assignment_operator2;
+	//house_assignment_operator1 = house_assignment_operator2 = user_defined_house;
+	//house_assignment_operator1.display();
+	//house_assignment_operator2.display();
+	
+	//Family family(pHouse);
+	//family.display();
 	
 	return 0;
 }

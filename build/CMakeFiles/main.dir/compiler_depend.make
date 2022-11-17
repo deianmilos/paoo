@@ -552,8 +552,12 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   ../include/House.h \
   ../include/House.h \
   ../include/Mansion.h \
-  ../include/Mansion.h
+  ../include/Mansion.h \
+  ../include/Family.h \
+  ../include/Family.h
 
+
+../include/Family.h:
 
 ../src/main.cpp:
 

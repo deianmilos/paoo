@@ -8,12 +8,10 @@ using namespace std;
 
 class House
 {
-protected:
+private:
 	string address;
 	int number_of_rooms;
 	int surface;
-	
-private:
 	
 public:
 	//default constructor
@@ -22,10 +20,11 @@ public:
 	//user-defined constructor
 	House(string, int, int);
 	
-	//default copy-constructor
+	//copy-constructor
 	House(const House&);
 	
-	House& operator=(House&);
+	//copy assignment operator
+	House &operator=(const House&);
 	
 	//default destructor
 	~House(void);

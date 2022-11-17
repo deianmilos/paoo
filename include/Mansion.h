@@ -32,6 +32,9 @@ public:
 	//default copy-constructor
 	Mansion(const Mansion&);
 	
+	//copy assignment operator
+	Mansion& operator=(const Mansion&);
+	
 	//default destructor
 	~Mansion(void);
 	
