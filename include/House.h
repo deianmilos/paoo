@@ -8,7 +8,7 @@ using namespace std;
 
 class House
 {
-private:
+protected:
 	string address;
 	int number_of_rooms;
 	int surface;
@@ -24,7 +24,7 @@ public:
 	House(const House&);
 	
 	//copy assignment operator
-	House &operator=(const House&);
+	House& operator=(const House&);
 	
 	//default destructor
 	~House(void);
