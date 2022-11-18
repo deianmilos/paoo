@@ -149,6 +149,4 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /mnt/d/AN\ IV/PAOO/lab/github/src/../include/House.h \
  /mnt/d/AN\ IV/PAOO/lab/github/src/../include/House.h \
  /mnt/d/AN\ IV/PAOO/lab/github/src/../include/Mansion.h \
- /mnt/d/AN\ IV/PAOO/lab/github/src/../include/Mansion.h \
- /mnt/d/AN\ IV/PAOO/lab/github/src/../include/Family.h \
- /mnt/d/AN\ IV/PAOO/lab/github/src/../include/Family.h
+ /mnt/d/AN\ IV/PAOO/lab/github/src/../include/Mansion.h

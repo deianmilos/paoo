@@ -20,21 +20,18 @@ Mansion::Mansion(string adr, int nor, int s, int nof, bool hp):
 		 cout << "Inside of mansion (derived class) constructor [user-defined] \n";
 	}
 	
-/*
 
-commented lines for Item 6
 
-Mansion::Mansion(const Mansion& m){
-	
-	address=m.address;
-	number_of_rooms=m.number_of_rooms;
-	surface=m.surface;
-	number_of_floors=m.number_of_floors,
-	has_pool=m.has_pool;
-	
-	cout << "Inside of mansion (derived class) copy-constructor [default]\n";
-}
-*/
+//commented lines for Item 6
+
+Mansion::Mansion(const Mansion& m):
+	House(m),
+	number_of_floors(m.number_of_floors),
+	has_pool(m.has_pool)
+	{
+	cout << "Inside of mansion copy-constructor\n";
+	}
+
 
 Mansion &Mansion::operator=(const Mansion &m){
 	House::operator=(m);

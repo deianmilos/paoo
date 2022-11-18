@@ -8,7 +8,7 @@ using namespace std;
 
 class House
 {
-protected:
+private:
 	string address;
 	int number_of_rooms;
 	int surface;

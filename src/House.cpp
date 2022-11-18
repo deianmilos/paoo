@@ -28,6 +28,10 @@ House::House(const House& h){
 
 House &House::operator=(const House& h) 
 {
+	if(this == &h){
+		cout<<"Assigned object to itself\n";
+		return *this;
+	}
 	address=h.address;
 	number_of_rooms=h.number_of_rooms;
 	surface=h.surface;

@@ -22,7 +22,7 @@ public:
 	
 	//default copy-constructor
 	//Item 6: Explicitly disallow the use of compiler generated functions you do not want
-	Mansion(const Mansion&)=delete;
+	Mansion(const Mansion&);
 	
 	//copy assignment operator
 	Mansion& operator=(const Mansion&);
