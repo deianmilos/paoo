@@ -11,17 +11,8 @@ class Mansion : public House
 {
 private:
 	int number_of_floors;
-	bool has_pool;
+	bool has_pool; 
 
-/*
-Item 6: Explicitly disallow the use of compiler generated functions you do not want
-
-	//default constructor
-    Mansion(void);
-	
-	//the method delcared public and its implementation in Mansion.cpp file
-	should be commented when declaring it private
-*/
 public:
 	//default constructor
     Mansion(void);
@@ -30,7 +21,11 @@ public:
 	Mansion(string, int, int, int, bool);
 	
 	//default copy-constructor
+	//Item 6: Explicitly disallow the use of compiler generated functions you do not want
 	Mansion(const Mansion&);
+	
+	//copy assignment operator
+	Mansion& operator=(const Mansion&);
 	
 	//default destructor
 	~Mansion(void);
