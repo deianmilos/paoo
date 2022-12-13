@@ -21,6 +21,50 @@ House* createHouse(string address, int number_of_rooms, int surface){
 	return (new House(address,number_of_rooms,surface));
 }
 
+//for Item 14
+/*
+	Avem o clasa Door, o usa odata ce este deschisa nu poate sa mai fie deschisa inca odata pana ce 
+	aceasta nu este inchisa, astfel m-am gandit ca fucntiile lock si unlock sa corespunda de fapt la 
+	open si close
+*/
+class Door{
+
+};
+
+void open(Door *d){
+	cout<<"door opened"<<endl;
+}
+void close(Door *d){
+	cout<<"door closed"<<endl;
+}
+
+class Open_bad{
+	private:
+		//shared_ptr<Door> doorPtr;
+		Door *doorPtr;
+	public:
+		explicit Open_bad(Door *d): 
+		//doorPtr(d, close)
+		doorPtr(d)
+		{ 
+			//open(doorPtr.get()); 
+			open(doorPtr);
+		} // acquire resource
+		~Open_bad() { close(doorPtr); } // release resource
+};
+
+class Open_good{
+	private:
+		shared_ptr<Door> doorPtr;
+	public:
+		explicit Open_good(Door *d): 
+		doorPtr(d, close)
+		{ 
+			open(doorPtr.get()); 
+		} // acquire resource
+};
+
+
 int main(){
 
 //Item 4: Make sure that objects are initialized before they’re used
@@ -115,5 +159,18 @@ int main(){
 		spre acelasi obiect pe cand 2 shared_ptr pot.	
 	*/
 //Item 14: Think carefully about copying behavior in resource-managing classes.
+	
+	Door door;
+	//detalii despre cum am gandit acest item la inceput de main
+
+	//Open_bad door1(&door);
+	//Open_bad door2(door1);
+	//se va observa ca in urma celor doua linii de mai sus, o usa va fi deschisa o singura data
+	//si inchisa de doua ori ceea ce este gresit.
+
+	//Reference-count the underlying resource.
+	Open_good door3(&door);
+	Open_good door4(door3);
+	//se obseva ca de aceasta data, o usa deschisa se va inchide o singura data
 	return 0;
 }
