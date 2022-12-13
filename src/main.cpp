@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "../include/House.h"
 #include "../include/Mansion.h"
 
@@ -14,6 +15,12 @@ using namespace std;
 						<int> number of floors
 						<bool> has pool)
 */
+
+//for Item 13
+House* createHouse(string address, int number_of_rooms, int surface){
+	return (new House(address,number_of_rooms,surface));
+}
+
 int main(){
 
 //Item 4: Make sure that objects are initialized before they’re used
@@ -71,6 +78,42 @@ int main(){
 	//copy_all_parts__mansion.display();
 
 //Item 13: Use objects to manage resources.
+
+	//auto_ptr
+	auto_ptr<House> initial_house_auto(createHouse("test_item13_auto",1,1));
+	auto_ptr<House> another_house_auto(initial_house_auto);
+	
+	//cout<<initial_house_auto->get_address()<<endl; 
+	/* 
+		Daca decomentam linia de mai sus vom primi Segmentation fault
+		cum initial_house_auto pointeaza spre obiectul returnat de createHouse(), in momentul in care
+		creeam un nou obiect nou another_house_auto de tip auto_ptr si cu initial_house_auto ca parametru,
+		initial_house_auto isi va pierde valoarea spre obiectul spre care pointa in favoarea pointer-ului
+		another_house_auto care acum v-a pointa spre obiectul initial
+		acum initial_house_auto pointeaza spre null
+	*/
+
+	initial_house_auto = another_house_auto;
+	/* 
+		aici am schimbat valorile pointerilor, acum initial_house pointeaza din nou spre
+		obiectul initial, iar another house spre nimic,
+		acest fapt se intampla datorilta faptului ca 2 auto_ptr NU POT POINTA SPRE ACELASI OBIECT
+	*/
+
+	cout<<initial_house_auto->get_address()<<endl;
+	//de observat cum acum avem acces la campurile la care in cazul de mai sus nu aveam
+
+	//shared_ptr
+	shared_ptr<House> initial_house_shared(createHouse("test_item13_shared",1,1));
+	cout<<initial_house_shared->get_address()<<endl;
+	shared_ptr<House> another_house_shared(initial_house_shared);
+	cout<<initial_house_shared->get_address()<<endl;
+	/*
+		Se observa cum aceasta data valoarea spre care pointeaza initial_house_shared nu este pierduta
+		dupa ce apare inca un pointer another_house_shared care pointeaza exact spre acelasi obiect,
+		comparativ cu auto_ptr-ul unde isi pierdea valoarea pentru ca 2 auto_ptr nu pot pointa
+		spre acelasi obiect pe cand 2 shared_ptr pot.	
+	*/
 //Item 14: Think carefully about copying behavior in resource-managing classes.
 	return 0;
 }
